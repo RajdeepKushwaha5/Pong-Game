@@ -1,4 +1,4 @@
-# 🎮 Enhanced Pong Game
+# 🎮 Pong Game
 
 A modern, feature-rich implementation of the classic Pong game with stunning visual effects, dynamic gameplay, and comprehensive game mechanics.
 

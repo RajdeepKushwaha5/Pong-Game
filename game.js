@@ -644,7 +644,7 @@ class PongGame {
         this.ctx.fillText('PONG', CONFIG.CANVAS.WIDTH / 2, 150);
         
         this.ctx.font = '24px Arial';
-        this.ctx.fillText('Enhanced Edition', CONFIG.CANVAS.WIDTH / 2, 180);
+        this.ctx.fillText('', CONFIG.CANVAS.WIDTH / 2, 180);
         
         this.ctx.font = '20px Arial';
         this.ctx.fillText('Press SPACE to Start', CONFIG.CANVAS.WIDTH / 2, 250);

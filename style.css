@@ -1,22 +1,163 @@
-body {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e);
+    color: #fff;
+    text-align: center;
+    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 h1 {
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 0 0 20px #00ff41;
+    color: #00ff41;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41, 0 0 40px #00ff41;
+    }
+    to {
+        text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+    }
 }
 
 #pong {
     display: block;
     margin: 20px auto;
-    background: #000;
-    border: 4px solid #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 30px #000;
+    background: linear-gradient(135deg, #000011, #000033);
+    border: 3px solid #00ff41;
+    border-radius: 15px;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 65, 0.3),
+        inset 0 0 50px rgba(0, 0, 0, 0.5);
+    cursor: none;
+    transition: all 0.3s ease;
+}
+
+#pong:hover {
+    box-shadow: 
+        0 0 40px rgba(0, 255, 65, 0.5),
+        inset 0 0 50px rgba(0, 0, 0, 0.5);
+    border-color: #00ff80;
+}
+
+.game-info {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+    color: #888;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.controls-info {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.version-info {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 10px;
+    color: #444;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    
+    #pong {
+        margin: 10px;
+        max-width: 95vw;
+        max-height: 60vh;
+    }
+    
+    .game-info,
+    .controls-info {
+        font-size: 12px;
+    }
+    
+    .controls-info {
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
+    
+    #pong {
+        margin: 5px;
+        border-radius: 10px;
+    }
+    
+    .game-info {
+        top: 10px;
+        left: 10px;
+        font-size: 10px;
+    }
+    
+    .controls-info {
+        font-size: 10px;
+        bottom: 5px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    h1 {
+        animation: none;
+        text-shadow: 0 0 20px #00ff41;
+    }
+    
+    #pong {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    body {
+        background: #000;
+    }
+    
+    #pong {
+        border-color: #fff;
+        background: #000;
+        box-shadow: 0 0 0 2px #fff;
+    }
+    
+    h1 {
+        color: #fff;
+        text-shadow: none;
+        animation: none;
+    }
 }
